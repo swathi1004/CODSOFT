@@ -1,1 +1,20 @@
-
+#include<iostream>
+using namespace std;
+int main(){
+    int num,g_no,attempts=0;
+    srand(time(0));
+    num=rand()%100+1;
+    cout<<"Guess my number game:\n\n";
+    do{
+        cout<<"Enter a guess_no btw 1 and 100: ";
+        cin>>g_no;
+        attempts++;
+        if(g_no>num)
+        cout<<"high\n";
+        else if(g_no<num)
+        cout<<"Low\n";
+        else
+        cout<<"you got it correct in "<<attempts<<"attempts!\n";
+    }while(g_no!=num);
+    return 0;
+}
