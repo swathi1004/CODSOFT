@@ -1,1 +1,59 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iomanip>
 
+using namespace std;
+
+struct Student {
+    string name;
+    double grade;
+};
+
+int main() {
+    vector<Student> students;
+    string name;
+    double grade;
+    
+    while (true) {
+        cout << "Enter student name (or 'exit' to finish): ";
+        cin >> name;
+        
+        if (name == "exit") {
+            break;
+        }
+        
+        cout << "Enter student grade: ";
+        cin >> grade;
+        
+        Student student;
+        student.name = name;
+        student.grade = grade;
+        
+        students.push_back(student);
+    }
+    
+    if (students.empty()) {
+        cout << "No students entered. Exiting." << endl;
+        return 0;
+    }
+    
+    double totalGrade = 0;
+    double highestGrade = students[0].grade;
+    double lowestGrade = students[0].grade;
+
+    for (const Student& student : students) {
+        totalGrade += student.grade;
+        highestGrade = max(highestGrade, student.grade);
+        lowestGrade = min(lowestGrade, student.grade);
+    }
+
+    double averageGrade = totalGrade / students.size();
+
+    cout << "Average Grade: " << fixed << setprecision(2) << averageGrade << endl;
+    cout << "Highest Grade: " << highestGrade << endl;
+    cout << "Lowest Grade: " << lowestGrade << endl;
+
+    return 0;
+}
