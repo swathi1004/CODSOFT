@@ -1,71 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Calculator</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <div class="todo_app">
+            <h2>To-Do List <i class='bx bxs-edit-alt'></i></h2>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="add your text">
+                <button onclick="addTask()">Add</button>
+            </div>
+            <ul id="list-container">
+                <!--li class="checked">task 1</li>
+                <li>task 2</li>
+                <li>task 3</li>
+                <li>i>task 4</li>-->
 
-<table class="calculator">
-  <tr>
-    <td colspan="5"><input type="text" id="display" placeholder="00000"></td>
-  </tr>
-  <tr>
-    <td><input type="button" value="AC" onclick="clearDisplay()"></td>
-    <td><input type="button" value="(" onclick="appendToDisplay('(')"></td>
-    <td><input type="button" value=")" onclick="appendToDisplay(')')"></td>
-    <td><input type="button" value="/" onclick="appendToDisplay('/')"></td>
-    <td><input type="button" value="<-" onclick="removeLastCharacter()"></td>
-    </tr>
-  <tr>
-    <td><input type="button" value="7" onclick="appendToDisplay('7')"></td>
-    <td><input type="button" value="8" onclick="appendToDisplay('8')"></td>
-    <td><input type="button" value="9" onclick="appendToDisplay('9')"></td>
-    <td colspan="2"><input type="button" value="*" onclick="appendToDisplay('*')"></td>
-  </tr>
-  <tr>
-    <td><input type="button" value="4" onclick="appendToDisplay('4')"></td>
-    <td><input type="button" value="5" onclick="appendToDisplay('5')"></td>
-    <td><input type="button" value="6" onclick="appendToDisplay('6')"></td>
-    <td colspan="2"><input type="button" value="-" onclick="appendToDisplay('-')"></td>
-  </tr>
-  <tr>
-    <td><input type="button" value="1" onclick="appendToDisplay('1')"></td>
-    <td><input type="button" value="2" onclick="appendToDisplay('2')"></td>
-    <td><input type="button" value="3" onclick="appendToDisplay('3')"></td>
-    <td colspan="2"><input type="button" value="+" onclick="appendToDisplay('+')"></td>
-  </tr>
-  <tr>
-    <td colspan="3"><input type="button" value="0" onclick="appendToDisplay('0')"></td>
-    <td colspan="2" bgcolor="lightgrey"><input type="button" value="=" onclick="calculate()"></td>
-  </tr>
-</table>
-
-<script>
-  function appendToDisplay(value) {
-    document.getElementById('display').value += value;
-  }
-
-  function clearDisplay() {
-    document.getElementById('display').value = '';
-  }
-  function removeLastCharacter() {
-    var displayValue = document.getElementById('display').value;
-    document.getElementById('display').value = displayValue.slice(0, -1);
-  }
-
-  function calculate() {
-    try {
-      var result = eval(document.getElementById('display').value);
-      document.getElementById('display').value = result;
-    } catch (error) {
-      document.getElementById('display').value = 'Error';
-    }
-  }
-</script>
-
+            </ul>    
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
-
